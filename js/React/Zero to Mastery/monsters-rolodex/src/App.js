@@ -13,7 +13,6 @@ class App extends Component {
     this.state = {
       monsters: [],
       searchField: '',
-      title: ''
     };
   }
 
@@ -26,16 +25,16 @@ componentDidMount() {
 
 /* Function to handle Search Box change */
 handleChange = (e) => {
-  this.setState({ searchField: e.target.value, title: e.target.value });
+  this.setState({ searchField: e.target.value });
 }
 
 
   render() {
     /* Destructure the array */
-    const { monsters, searchField, title } = this.state;
-/*     /* Create a new array (monster) and filter out the monsters (card-list) */
+    const { monsters, searchField } = this.state;
+ /* Create a new array (monster) and filter out the monsters (card-list) */
     const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()))
- */    
+
     return (
       <div className="App">
         <h1>Monsters Rolodex</h1>
@@ -43,7 +42,7 @@ handleChange = (e) => {
           placeholder="Search Monsters"
           handleChange={ this.handleChange } 
         />
-        <CardList monsters={ monsters } />
+        <CardList monsters={ filteredMonsters } />
       </div>
     );
   }
