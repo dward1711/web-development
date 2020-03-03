@@ -4,17 +4,20 @@ import './App.css';
 import { render } from '@testing-library/react';
 
 class App extends React.Component {
-  constructor () {
-    super()
+  /* Add 'props' to the class, good practice */
+  constructor (props) {
+    super(props)
     this.state = {
-      meaningOfLife: 47
+      meaningOfLife: 47 + this.props.increment
     };
+
+    this.props = props;
   }
 
   /* Asynchronous Call back create a second parameter, in this case, console.log */
 handleClick = () => {
   this.setState((prevState, prevProps) => {
-    return { meaningOfLife: this.state.meaningOfLife + 1}
+    return { meaningOfLife: prevState.meaningOfLife + prevProps.increment}
   },
   () => console.log(this.state.meaningOfLife)
   )
