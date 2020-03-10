@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {LifeCycles} from './components/lifecycles.component.jsx';
+import { Lifecycles } from './components/lifecycles.component.jsx';
 
-class App extends React.Component {
+class App extends Component {
   constructor (props) {
     super (props);
 
@@ -38,7 +38,7 @@ class App extends React.Component {
             <LifeCycles />
           </p>
 
-        {this.state.showChid ? <LifeCycles text={this.state.text} /> : null }
+        {this.state.showChid ? <Lifecycles text={this.state.text} /> : null }
         </header>
       </div>
     );
